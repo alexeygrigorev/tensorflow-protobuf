@@ -14,11 +14,11 @@ unzip tf-serving.zip && rm tf-serving.zip
 
 mv serving-${TFS_VERSION}/tensorflow_serving tensorflow-${TF_VERSION}
 
-mkdir tfserving_proto
+mkdir tf_temporary_folder
 
 cd tensorflow-${TF_VERSION}
 
-TF_SERVING_PROTO=../tfserving_proto
+TF_SERVING_PROTO=../tf_temporary_folder
 
 python -m grpc.tools.protoc \
     ./tensorflow/core/framework/*.proto \
@@ -46,11 +46,15 @@ python -m grpc.tools.protoc \
 
 mv LICENSE ..
 
+
 cd ..
 
 rm -r serving-${TFS_VERSION} tensorflow-${TF_VERSION}
-mv tfserving_proto/* .
+mv tf_temporary_folder/* .
 
-rm -fr tfserving_proto
+mv tensorflow tensorflow_proto
+mv tensorflow_serving tensorflow_serving_proto
+
+rm -fr tf_temporary_folder
 
 echo "TF_VERSION=${TF_VERSION} and TFS_VERSION=${TFS_VERSION}" > .version
