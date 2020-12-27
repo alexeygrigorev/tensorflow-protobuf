@@ -20,7 +20,7 @@ With it, your code will look like that:
 
 
 ```python
-from tensorflow.core.framework import tensor_pb2, tensor_shape_pb2, types_pb2
+from tensorflow_proto.core.framework import tensor_pb2, tensor_shape_pb2, types_pb2
 
 
 def dtypes_as_dtype(dtype):
