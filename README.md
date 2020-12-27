@@ -50,6 +50,8 @@ def np_to_protobuf(data):
 
 A bit more verbose, but without the 2GB baggage. 
 
+See a full example here: [example.py](example.py)
+
 Have fun!
 
 
