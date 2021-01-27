@@ -52,9 +52,6 @@ cd ..
 rm -r serving-${TFS_VERSION} tensorflow-${TF_VERSION}
 mv tf_temporary_folder/* .
 
-mv tensorflow tensorflow_proto
-mv tensorflow_serving tensorflow_serving_proto
-
 rm -fr tf_temporary_folder
 
 echo "TF_VERSION=${TF_VERSION} and TFS_VERSION=${TFS_VERSION}" > .version

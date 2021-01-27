@@ -1,8 +1,8 @@
 import grpc
 
-from tensorflow_proto.core.framework import tensor_pb2, tensor_shape_pb2, types_pb2
-from tensorflow_serving_proto.apis import prediction_service_pb2_grpc
-from tensorflow_serving_proto.apis import predict_pb2
+from tensorflow.core.framework import tensor_pb2, tensor_shape_pb2, types_pb2
+from tensorflow_serving.apis import prediction_service_pb2_grpc
+from tensorflow_serving.apis import predict_pb2
 
 from keras_image_helper import create_preprocessor
 
