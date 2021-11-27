@@ -21,10 +21,13 @@ This project takes only the part you actually need for that: the protobuf files 
 ### Installing it
 
 ```bash
-pip install tensorflow-protobuf==2.3.0
+pip install tensorflow-protobuf==2.7.0
 ```
 
-Other available versions: 2.7.0
+Available versions: 
+
+* 2.3.0
+* 2.7.0
 
 ### Using it
 
@@ -84,8 +87,8 @@ If you want to build it for other versions and publish it,
 do this:
 
 ```bash
-export TF_VERSION=2.3.0
-echo ${TF_VERSION} > .version
+export TF_VERSION=2.7.0
+echo "__version__ = '${TF_VERSION}'" > version.py
 
 python -m venv env
 source env/bin/activate
@@ -99,8 +102,9 @@ python setup.py sdist bdist_wheel
 twine check dist/*
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
+twine upload dist/*
 
 rm -rf tensorflow/ tensorflow_serving/
 rm -rf tensorflow_protobuf.egg-info/ build/ dist/ __pycache__/
-
+rm version.py LICENSE
 ```

@@ -49,7 +49,6 @@ python -m grpc.tools.protoc \
 mv LICENSE ..
 
 
-
 cd ..
 
 rm -r serving-${TFS_VERSION} tensorflow-${TF_VERSION}
