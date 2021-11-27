@@ -1,4 +1,4 @@
-# TensorFlow Protobuf
+## TensorFlow Protobuf
 
 Imagine you want to talk to your model deployed with TF-Serving using gPRC and protobuf.
 
@@ -14,7 +14,19 @@ def np_to_protobuf(data):
 Boom - you have a 2 GB dependency to deal with! 
 
 
+## TensorFlow Protobuf
+
 This project takes only the part you actually need for that: the protobuf files (compiled). 
+
+### Installing it
+
+```bash
+pip install tensorflow-protobuf==2.3.0
+```
+
+Other available versions: 2.7.0
+
+### Using it
 
 With it, your code will look like that:
 
@@ -55,7 +67,7 @@ See a full example here: [example.py](example.py)
 Have fun!
 
 
-# Process
+## Building and compiling it
 
 To see how we extract and compile the protobuf files, check [tf-serving-proto.sh](tf-serving-proto.sh).
 
@@ -63,4 +75,32 @@ To use it:
 
 ```bash
 TF_VERSION="2.3.0" ./tf-serving-proto.sh
+```
+
+
+## Publishing on PyPI
+
+If you want to build it for other versions and publish it,
+do this:
+
+```bash
+export TF_VERSION=2.3.0
+echo ${TF_VERSION} > .version
+
+python -m venv env
+source env/bin/activate
+
+./tf-serving-proto.sh
+
+pip install wheel twine
+
+python setup.py sdist bdist_wheel
+
+twine check dist/*
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+
+rm -rf tensorflow/ tensorflow_serving/
+rm -rf tensorflow_protobuf.egg-info/ build/ dist/ __pycache__/
+
 ```

@@ -1,4 +1,6 @@
 
+set -e
+
 TF_VERSION=${TF_VERSION:-2.3.0}
 TFS_VERSION=${TFS_VERSION:-${TF_VERSION}}
 
@@ -47,6 +49,7 @@ python -m grpc.tools.protoc \
 mv LICENSE ..
 
 
+
 cd ..
 
 rm -r serving-${TFS_VERSION} tensorflow-${TF_VERSION}
@@ -54,4 +57,5 @@ mv tf_temporary_folder/* .
 
 rm -fr tf_temporary_folder
 
-echo "TF_VERSION=${TF_VERSION} and TFS_VERSION=${TFS_VERSION}" > .version
+touch tensorflow/__init__.py
+touch tensorflow_serving/__init__.py

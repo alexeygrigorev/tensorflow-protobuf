@@ -1,5 +1,6 @@
 import pathlib
 from setuptools import setup
+from setuptools import find_packages
 
 from version import __version__
 
@@ -26,7 +27,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
     ],
-    packages=["tensorflow", "tensorflow_serving"],
+    packages=find_packages(include=('tensorflow*', )),
     include_package_data=True,
     install_requires=["protobuf"],
 )
