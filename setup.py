@@ -17,7 +17,7 @@ setup(
     description="Protobuf files from TensorFlow and TensorFlow-Serving",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/alexeygrigorev/tensorflow-protobufr",
+    url="https://github.com/alexeygrigorev/tensorflow-protobuf",
     author="TensorFlow authors",
     author_email="alexey@datatalks.club",
     license="Original Tensorflow licence",
